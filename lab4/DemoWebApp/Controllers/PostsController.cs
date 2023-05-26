@@ -176,6 +176,15 @@ namespace DemoWebApp.Controllers
             });
         }
 
+        [HttpPost("api/posts/{postId}/comments/{commentId}/like")]
+        public IActionResult LikeComment(int commentId)
+        {
+            service.AddCommentLike(commentId);
 
+            return Ok(new Response()
+            {
+                Status = 200,
+            });
+        }
     }
 }
